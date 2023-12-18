@@ -17,6 +17,9 @@ I want to make a step calculator that will calculate how many miles I've done to
 - calculate
   - Need to obviously input how many steps I take
   - input my speed in which im walking/running
+  - take gender into consideration
+  - take height into consideration
+  - find the stride length
   - Calculate into miles
 
 - set a goal
