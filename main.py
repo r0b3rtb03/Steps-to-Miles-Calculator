@@ -69,27 +69,35 @@ def calculate_distance():
     # Equations/Formula
 
     # Height to CM Formula
-    h_inch += (int(h_feet) * 12)
-    height = round(int(h_inch) * 2.54, 1)
-    print(f"You are {height} cm's tall")  # Test to see if it works
+    def height(h_inch, h_feet):
+        h_inch += (h_feet * 12)
+        return h_inch
+
+    user_height = height(h_inch, h_feet)
 
     # Height to Stride Length Formula
-    if gender.lower() == "male":
-        stride_length = h_inch * 1.0541
-    elif gender.lower() == "female":
-        stride_length = h_inch * 1.0414
+    def stride_length(gender, user_height):
+        if gender == "male":
+            stride_length_cm = user_height * 1.0541
+        elif gender == "female":
+            stride_length_cm = user_height * 1.0414
+        return stride_length_cm
 
-    print(f"Your length stride is {stride_length} cm's")  # Test to see if it works
+    user_stride_length_cm = stride_length(gender, user_height)
+    print(f"Your stride length is {user_stride_length_cm} cm")
 
     # Stride Length to Inches to Feet
-    stride_length = round((float((stride_length * 0.39) / 12)), 2)
-    print(f"Your length stride is {stride_length} ft")  # Test to see if it works
+    user_stride_length_ft = round((float((user_stride_length_cm * 0.39) / 12)), 2)
+    print(f"Your length stride is {user_stride_length_ft} ft")  # Test to see if it works
 
     # Convert Steps to Miles
-    avg_mile = round((miles / stride_length), 2)
+    def miles(steps, user_stride_length_ft):
+        miles = (steps * user_stride_length_ft) / 5280
+        return miles
+
+    avg_miles = miles(steps, user_stride_length_ft)
 
     print(f"You've walked: {steps} steps")
-    print(f"You've walked: {avg_mile} miles")
-
+    print(f"You've walked: {avg_miles:.2f} miles")
 
 calculate_distance()
