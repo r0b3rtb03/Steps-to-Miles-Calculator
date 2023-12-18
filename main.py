@@ -80,4 +80,4 @@ avg_mile = round((miles / stride_length), 2)
 
 
 print("You've walked: "+str(steps)+" steps")
-print("You've walked: " +str(distance)+" miles")
+print("You've walked: " +str(avg_mile)+" miles")
